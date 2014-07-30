@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>Attacking = false
-Ammo = 10
+Ammo = 1000
 Weapon = "MachineGun"
 FireRate = 0
 Direction = "Down"
@@ -109,12 +109,12 @@ if (keyboard_check(ord("S"))) &amp;&amp; (place_free(x,y + 2))
     { y += 2
     UD = 0
     Direction = "Down"
-        if (LR = 1) &amp;&amp; (Attacking = false)
+        if (LR = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { image_xscale = -1
             sprite_index = Spr_Player_Walk_DR
             image_speed = 0.2
             }
-        if (LR = 0) &amp;&amp; (Attacking = false)
+        if (LR = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { image_xscale = 1
             sprite_index = Spr_Player_Walk_DR
             image_speed = 0.2
@@ -125,12 +125,12 @@ if (keyboard_check(ord("W"))) &amp;&amp; (place_free(x,y - 2))
     { y -= 2
     UD = 1
     Direction = "Up"
-        if (LR = 1) &amp;&amp; (Attacking = false)
+        if (LR = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { image_xscale = -1
             sprite_index = Spr_Player_Walk_UR
             image_speed = 0.2
             }
-        if (LR = 0) &amp;&amp; (Attacking = false)
+        if (LR = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { image_xscale = 1
             sprite_index = Spr_Player_Walk_UR
             image_speed = 0.2
@@ -142,11 +142,11 @@ if (keyboard_check(ord("A"))) &amp;&amp; (place_free(x - 2,y))
     image_xscale = -1
     LR = 1
     Direction = "Left"
-        if (UD = 1) &amp;&amp; (Attacking = false)
+        if (UD = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { sprite_index = Spr_Player_Walk_UR
             image_speed = 0.2
             }
-        if (UD = 0) &amp;&amp; (Attacking = false)
+        if (UD = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { sprite_index = Spr_Player_Walk_DR
             image_speed = 0.2
             }
@@ -157,11 +157,11 @@ if (keyboard_check(ord("D"))) &amp;&amp; (place_free(x + 2,y))
     image_xscale = 1
     LR = 0
     Direction = "Right"
-        if (UD = 1) &amp;&amp; (Attacking = false)
+        if (UD = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { sprite_index = Spr_Player_Walk_UR
             image_speed = 0.2
             }
-        if (UD = 0) &amp;&amp; (Attacking = false)
+        if (UD = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
             { sprite_index = Spr_Player_Walk_DR
             image_speed = 0.2
             }
@@ -317,7 +317,7 @@ if (FireRate &gt; -1) &amp;&amp; (Weapon = "MachineGun")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!mouse_check_button_pressed(mb_left))
+            <string>if (!mouse_check_button_pressed(mb_left)) &amp;&amp; (FireRate = 0)
     { Attacking = false
     }
 </string>
