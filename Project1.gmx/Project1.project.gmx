@@ -38,6 +38,7 @@
         <sprite>sprites\Spr_Level1_Collision_Mask</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\Spr_Mouse_Cursor</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

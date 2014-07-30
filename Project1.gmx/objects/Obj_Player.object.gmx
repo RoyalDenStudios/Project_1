@@ -25,13 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Attacking = false
-Ammo = 1000
+            <string>Ammo = 1000
 Weapon = "MachineGun"
 FireRate = 0
 Direction = "Down"
 LR = 0
 UD = 0
+cursor_sprite = Spr_Mouse_Cursor
 </string>
           </argument>
         </arguments>
@@ -76,95 +76,45 @@ UD = 0
             <kind>1</kind>
             <string>//Looking at Mouse
     //Down Right
-if (mouse_x &gt; Obj_Player.x) &amp;&amp; (mouse_y &gt; Obj_Player.y) &amp;&amp; (Attacking = true)
+if (mouse_x &gt; Obj_Player.x) &amp;&amp; (mouse_y &gt; Obj_Player.y)
     { sprite_index = Spr_Player_Walk_DR
     image_xscale = 1
-    image_speed = 0.2
-    image_index = 0
     }
     //Up Right
-if (mouse_x &gt; Obj_Player.x) &amp;&amp; (mouse_y &lt; Obj_Player.y) &amp;&amp; (Attacking = true)
+if (mouse_x &gt; Obj_Player.x) &amp;&amp; (mouse_y &lt; Obj_Player.y)
     { sprite_index = Spr_Player_Walk_UR
     image_xscale = 1
-    image_speed = 0.2
-    image_index = 0
     }
     //Up Left
-if (mouse_x &lt; Obj_Player.x) &amp;&amp; (mouse_y &lt; Obj_Player.y) &amp;&amp; (Attacking = true)
+if (mouse_x &lt; Obj_Player.x) &amp;&amp; (mouse_y &lt; Obj_Player.y)
     { sprite_index = Spr_Player_Walk_UR
     image_xscale = -1
-    image_speed = 0.2
-    image_index = 0
     }
     //Down Left
-if (mouse_x &lt; Obj_Player.x) &amp;&amp; (mouse_y &gt; Obj_Player.y) &amp;&amp; (Attacking = true)
+if (mouse_x &lt; Obj_Player.x) &amp;&amp; (mouse_y &gt; Obj_Player.y)
     { sprite_index = Spr_Player_Walk_DR
     image_xscale = -1
-    image_speed = 0.2
-    image_index = 0
     }
 //Movement
     //Move Down
 if (keyboard_check(ord("S"))) &amp;&amp; (place_free(x,y + 2))
     { y += 2
-    UD = 0
-    Direction = "Down"
-        if (LR = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { image_xscale = -1
-            sprite_index = Spr_Player_Walk_DR
-            image_speed = 0.2
-            }
-        if (LR = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { image_xscale = 1
-            sprite_index = Spr_Player_Walk_DR
-            image_speed = 0.2
-            }
+    image_speed = 0.2
     }
     //Move Up
 if (keyboard_check(ord("W"))) &amp;&amp; (place_free(x,y - 2))
     { y -= 2
-    UD = 1
-    Direction = "Up"
-        if (LR = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { image_xscale = -1
-            sprite_index = Spr_Player_Walk_UR
-            image_speed = 0.2
-            }
-        if (LR = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { image_xscale = 1
-            sprite_index = Spr_Player_Walk_UR
-            image_speed = 0.2
-            }
+    image_speed = 0.2
     }
     //Move Left
 if (keyboard_check(ord("A"))) &amp;&amp; (place_free(x - 2,y))
     { x -= 2
-    image_xscale = -1
-    LR = 1
-    Direction = "Left"
-        if (UD = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { sprite_index = Spr_Player_Walk_UR
-            image_speed = 0.2
-            }
-        if (UD = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { sprite_index = Spr_Player_Walk_DR
-            image_speed = 0.2
-            }
+    image_speed = 0.2
     }
     //Move Right
 if (keyboard_check(ord("D"))) &amp;&amp; (place_free(x + 2,y))
     { x += 2
-    image_xscale = 1
-    LR = 0
-    Direction = "Right"
-        if (UD = 1) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { sprite_index = Spr_Player_Walk_UR
-            image_speed = 0.2
-            }
-        if (UD = 0) &amp;&amp; (Attacking = false) &amp;&amp; (FireRate = 0)
-            { sprite_index = Spr_Player_Walk_DR
-            image_speed = 0.2
-            }
+    image_speed = 0.2
     }
 //Idle Animation
 if (!keyboard_check(ord("D"))) &amp;&amp; (!keyboard_check(ord("A"))) &amp;&amp; (!keyboard_check(ord("S"))) &amp;&amp; (!keyboard_check(ord("W")))
@@ -281,49 +231,6 @@ if (FireRate &gt; -1) &amp;&amp; (Weapon = "MachineGun")
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Misc.</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (!mouse_check_button_pressed(mb_left)) &amp;&amp; (FireRate = 0)
-    { Attacking = false
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="4" ename="Obj_Metal_Wall">
       <action>
@@ -393,7 +300,6 @@ Ammo += 50
             <string>if (FireRate = 0) &amp;&amp; (Weapon = "MachineGun") &amp;&amp; (Ammo &gt; 0)
     { instance_create(x,y + 5,Obj_Machine_Bullet)
     Ammo -= 1
-    Attacking = true
     }
 </string>
           </argument>
